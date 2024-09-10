@@ -28,3 +28,46 @@ __Condiciones__
 - 1 <= n <= 10<sup>5</sup>
 - 1 <= candles[i] <= 10<sup>5</sup>
 
+## Instrucciones
+
+Dentro de la carpeta hay dos archivos: `candles.py` y `candles.js`. __Elegir solamente uno__.
+
+### Python
+
+El archivo `candles.py` tiene una función definida llamada `candles` que debe de ser completada para que regrese los valores esperados. Asegurarse de eliminar la instrucción `pass` cuando se termine.
+
+```python
+def candles(a: list[int]) -> int:
+    # your code here
+    pass
+```
+
+También se incluyen algunas pruebas con los valores esperados como comentarios y no deben de modificarse.
+
+```python
+    print(candles([4, 4, 1, 3])) # 2
+    print(candles([1, 1, 1, 1, 1])) # 5
+```
+
+Para poder ejecutar el archivo `candles.py`, se debe de tener instalado python. Se puede descargar de su [sitio oficial](https://www.python.org/).
+
+
+```bash
+python3 candles.py
+```
+
+### Javascript
+
+El archivo `candles.js` tiene una función definida llamada `candles` que debe de ser completada para que regrese los valores esperados.
+
+```javascript
+function candles(arr) {
+  // your code here
+}
+```
+
+Para poder ejecutar el archivo `candles.js`, se debe de tener instalado el runtime de Node. Se puede descargar de su [sitio oficial](https://nodejs.org).
+
+```bash
+node candles.js
+```
