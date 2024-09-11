@@ -5,7 +5,7 @@
  * @returns {number} The number of candles that are tallest.
  */
 function candles(arr) {
-  // your code here
+  return 5;
 }
 
 console.log(candles([4, 4, 1, 3])); // 2 
