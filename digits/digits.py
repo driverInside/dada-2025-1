@@ -1,6 +1,16 @@
 def digits(n: int) -> int:
-    # your code here
-    pass
+    counter = 0
+
+    while n > 0:
+        n = n // 10
+        counter += 1
+
+    if counter == 0:
+        return 1
+    
+    return counter
+
+    # return 1 if counter == 0 else counter
 
 if __name__ == "__main__":
     print(digits(317)) # 3
