@@ -17,7 +17,7 @@ function digits(n) {
   }
   return counter;
 
-  return counter === 0? 1: counter;
+  // return counter === 0? 1: counter;
 }
 
 console.log(digits(317)); // 3
