@@ -19,13 +19,14 @@ class LinkedList {
   append(node) {
     if (this.size === 0) {
       // la lista está vacía.
-
       this.head = node;
       this.tail = node;
-      this.size++;
     } else {
-      // tarea
+      this.tail.next = node;
+      this.tail = node;
     }
+
+    this.size++;
   }
 
   isEmpty() {
@@ -33,85 +34,90 @@ class LinkedList {
   }
 
   toString () {
-    // tarea
+    if (this.size === 0) {
+      return "empty";
+    }
+
+    let current = this.head;
+    let str = '';
+
+    while (current != null) {
+      str = str + current.value + " -> ";
+      current = current.next;
+    }
+
+    return str;
+  }
+
+  pop () {
+    const current = this.head;
+
+    this.head = this.head.next;
+    this.size--;
+
+    return current;
   }
 }
 
+// Nodos lista A
 const nodeTwo = new Node(2);
 const nodeFive = new Node(5);
+const nodeEigth = new Node(8);
+const nodeTen = new Node(10);
+// Nodos lista B
+const nodeThree = new Node(3);
+const nodeFour = new Node(4);
+const nodeNine = new Node(9);
+const nodeEleven = new Node(11);
+const nodeTwelve = new Node(12);
+
+const linkedListA = new LinkedList();
+const linkedListB = new LinkedList();
+
+linkedListA.append(nodeTwo);
+linkedListA.append(nodeFive);
+linkedListA.append(nodeEigth);
+linkedListA.append(nodeTen);
+
+linkedListB.append(nodeThree);
+linkedListB.append(nodeFour);
+linkedListB.append(nodeNine);
+linkedListB.append(nodeEleven);
+linkedListB.append(nodeTwelve);
+
+console.log(linkedListA.getSize());  // 4
+console.log(linkedListB.getSize());  // 5;
+console.log(linkedListB.getSize());  // 5;
+
+console.log(linkedListA.toString());
+console.log(linkedListB.toString());
+
+function merge(listA, listB) {
+  const listC = new LinkedList();
+
+  while (!listA.isEmpty() && !listB.isEmpty()) {
+    if (listA.head.value < listB.head.value) {
+      const current = listA.pop();
+      listC.append(current);
+    } else {
+      const current = listB.pop();
+      listC.append(current);
+    }
+  }
+
+  const otherList = listA.isEmpty()? listB: listA;
+
+  while (!otherList.isEmpty()) {
+    const current = otherList.pop();
+    listC.append(current);
+  }
+  
+  return listC;
+}
 
 
-const linkedList = new LinkedList();
+const linkedListC = merge(linkedListA, linkedListB);
 
-console.log(linkedList.isEmpty()); // true
+console.log(linkedListC.toString()); // 2 - 3 - 4- 5- 8- 9- 10- 11- 12
 
-linkedList.append(nodeTwo);
-linkedList.append(nodeFive);
-
-console.log(linkedList.isEmpty()); // false
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class LinkedList {
-//   constructor () {
-//     this.size = 0;
-//     this.head = null;
-//     this.tail = null;
-//   }
-
-//   /**
-//    * append
-//    * @description - Agrega un nodo al final de la lista.
-//    * @param {Node} node - El nodo a agregar 
-//    */
-//   append(node) {
-
-//   }
-
-//   /**
-//    * removeHead
-//    * @description - Elimina el nodo head de la lista y lo regresa.
-//    * @returns {Node} - El nodo que se quita de la lista.
-//    */
-//   removeHead() {
-
-//   }
-
-//   /**
-//    * getSize
-//    * @returns {number} - El tamaño de la lista.
-//    */
-//   getSize() {
-//     return this.size;
-//   } 
-// }
-
-// const nodeOne = new Node(2);
-// const nodeTwo = new Node(3);
-// const nodeThree = new Node(5);
-// const nodeFour = new Node(8);
-
-// const listA = new LinkedList();
-// listA.append(nodeOne);
-// listA.append(nodeTwo);
-// listA.append(nodeThree);
-// listA.append(nodeFour);
-
-// console.log(listA.getSize());
 
